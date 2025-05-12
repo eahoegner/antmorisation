@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier
+_commit: v0.4.2
+_src_path: gl:openscm/copier-basic-python-repository
+email: hoegner@iiasa.ac.at
+name: Annika Högner, Niklas Schwind, Tessa Möller
+notebooks: true
+package_manager: uv
+project_description_short: Prototype repo to get a reasonable standardisation of ESM
+    output data going from the flat10 MIP experiments.
+project_url: https://github.com/eahoegner/antmorisation
