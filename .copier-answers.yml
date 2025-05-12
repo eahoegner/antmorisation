@@ -1,10 +1,18 @@
-# Changes here will be overwritten by Copier
-_commit: v0.4.2
-_src_path: gl:openscm/copier-basic-python-repository
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v0.12.3
+_src_path: gl:openscm/copier-core-python-repository
+conda_release: false
 email: hoegner@iiasa.ac.at
+include_cli: false
 name: Annika Högner, Niklas Schwind, Tessa Möller
-notebooks: true
+notebook_based_docs: true
 package_manager: uv
+pandas_doctests: false
+plot_dependencies: true
 project_description_short: Prototype repo to get a reasonable standardisation of ESM
     output data going from the flat10 MIP experiments.
+project_name_human: ESM data standardisation project
+project_name_pip: antmorise
+project_name_python: antmorise
 project_url: https://github.com/eahoegner/antmorisation
+track_lock_file: true

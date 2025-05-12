@@ -1,130 +1,130 @@
-# My Python repo
-<!--- Adding a one-line description of what this repository is for here may be
-helpful -->
+<!--- --8<-- [start:description] -->
+# ESM data standardisation project
+
+Prototype repo to get a reasonable standardisation of ESM output data going from the flat10 MIP experiments.
+
+**Key info :**
+[![Docs](https://readthedocs.org/projects/antmorise/badge/?version=latest)](https://antmorise.readthedocs.io)
+[![Main branch: supported Python versions](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Feahoegner%2Fantmorisation%2Fmain%2Fpyproject.toml)](https://github.com/eahoegner/antmorisation/blob/main/pyproject.toml)
+[![Licence](https://img.shields.io/pypi/l/antmorise?label=licence)](https://github.com/eahoegner/antmorisation/blob/main/LICENCE)
+
+**PyPI :**
+[![PyPI](https://img.shields.io/pypi/v/antmorise.svg)](https://pypi.org/project/antmorise/)
+[![PyPI install](https://github.com/eahoegner/antmorisation/actions/workflows/install-pypi.yaml/badge.svg?branch=main)](https://github.com/eahoegner/antmorisation/actions/workflows/install-pypi.yaml)
+
+**Tests :**
+[![CI](https://github.com/eahoegner/antmorisation/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/eahoegner/antmorisation/actions/workflows/ci.yaml)
+[![Coverage](https://codecov.io/gh/eahoegner/antmorisation/branch/main/graph/badge.svg)](https://codecov.io/gh/eahoegner/antmorisation)
+
+**Other info :**
+[![Last Commit](https://img.shields.io/github/last-commit/eahoegner/antmorisation.svg)](https://github.com/eahoegner/antmorisation/commits/main)
+[![Contributors](https://img.shields.io/github/contributors/eahoegner/antmorisation.svg)](https://github.com/eahoegner/antmorisation/graphs/contributors)
+## Status
+
 <!---
 
-We recommend having a status line in your repo to tell anyone who stumbles
-on your repository where you're up to. Some suggested options:
+We recommend having a status line in your repo
+to tell anyone who stumbles on your repository where you're up to.
+Some suggested options:
 
 - prototype: the project is just starting up and the code is all prototype
 - development: the project is actively being worked on
-- finished: the project has achieved what it wanted and is no longer being
-  worked on, we won't reply to any issues
-- dormant: the project is no longer worked on but we might come back to it, if
-  you have questions, feel free to raise an issue
-- abandoned: this project is no longer worked on and we won't reply to any
-  issues
-
+- finished: the project has achieved what it wanted
+  and is no longer being worked on, we won't reply to any issues
+- dormant: the project is no longer worked on
+  but we might come back to it,
+  if you have questions, feel free to raise an issue
+- abandoned: this project is no longer worked on
+  and we won't reply to any issues
 -->
-
-## Status
 
 - prototype: the project is just starting up and the code is all prototype
 
+<!--- --8<-- [end:description] -->
+
+Full documentation can be found at:
+[antmorise.readthedocs.io](https://antmorise.readthedocs.io/en/latest/).
+We recommend reading the docs there because the internal documentation links
+don't render correctly on GitHub's viewer.
+
 ## Installation
 
-We do all our environment management using [uv](https://docs.astral.sh/uv/).
+<!--- --8<-- [start:installation] -->
+### As an application
+
+If you want to use ESM data standardisation project as an application,
+then we recommend using the 'locked' version of the package.
+This version pins the version of all dependencies too,
+which reduces the chance of installation issues
+because of breaking updates to dependencies.
+
+The locked version of ESM data standardisation project can be installed with
+
+=== "pip"
+    ```sh
+    pip install 'antmorise[locked]'
+    ```
+
+### As a library
+
+If you want to use ESM data standardisation project as a library,
+for example you want to use it
+as a dependency in another package/application that you're building,
+then we recommend installing the package with the commands below.
+This method provides the loosest pins possible of all dependencies.
+This gives you, the package/application developer,
+as much freedom as possible to set the versions of different packages.
+However, the tradeoff with this freedom is that you may install
+incompatible versions of ESM data standardisation project's dependencies
+(we cannot test all combinations of dependencies,
+particularly ones which haven't been released yet!).
+Hence, you may run into installation issues.
+If you believe these are because of a problem in ESM data standardisation project,
+please [raise an issue](https://github.com/eahoegner/antmorisation/issues).
+
+The (non-locked) version of ESM data standardisation project can be installed with
+
+=== "pip"
+    ```sh
+    pip install antmorise
+    ```
+
+Additional dependencies can be installed using
+
+=== "pip"
+    ```sh
+    # To add plotting dependencies
+    pip install 'antmorise[plots]'
+
+    # To add all optional dependencies
+    pip install 'antmorise[full]'
+    ```
+
+### For developers
+
+For development, we rely on [uv](https://docs.astral.sh/uv/)
+for all our dependency management.
 To get started, you will need to make sure that uv is installed
-([instructions here](https://docs.astral.sh/uv/getting-started/installation/),
-we found that using uv's standalone installer was best on a Mac).
+([instructions here](https://docs.astral.sh/uv/getting-started/installation/)
+(we found that the self-managed install was best,
+particularly for upgrading uv later).
 
-To create the virtual environment, run
+For all of our work, we use our `Makefile`.
+You can read the instructions out and run the commands by hand if you wish,
+but we generally discourage this because it can be error prone.
+In order to create your environment, run `make virtual-environment`.
 
-```sh
-uv sync
-uv run pre-commit install
-```
+If there are any issues, the messages from the `Makefile` should guide you through.
+If not, please raise an issue in the
+[issue tracker](https://github.com/eahoegner/antmorisation/issues).
 
-These steps are also captured in the `Makefile` so if you want a single
-command, you can instead simply run `make virtual-enviroment`.
+For the rest of our developer docs, please see [development][development].
 
-Having installed your virtual environment, you can now run commands in your
-virtual environment using
-
-```sh
-uv run <command>
-```
-
-For example, to run Python within the virtual environment, run
-
-```sh
-uv run python
-```
-
-As another example, to run a notebook server, run
-
-```sh
-uv run jupyter lab
-```
-
-<!--- Other documentation and instructions can then be added here as you go,
-perhaps replacing the other instructions above as they may become redundant.
--->
-
-## Development
-
-<!--- In bigger projects, we would recommend having separate docs where this
-development information can go. However, for such a simple repository, having
-it all in the README is fine. -->
-
-Install and run instructions are the same as the above (this is a simple
-repository, without tests etc. so there are no development-only dependencies).
-
-### Contributing
-
-This is a very thin repository. There aren't any strict guidelines for
-contributing, partly because we don't know what we're trying to achieve (we're
-just exploring). If you would like to contribute, it is best to raise an issue
-to discuss what you want to do (without a discussion, we can't guarantee that
-any contribution can actually be used).
-<!--- You may want to update this section as the project evolves. -->
-
-### Repository structure
-
-The repository is very basic. It imposes no structure on you so you can layout
-your Python files, notebooks etc. in any way you wish. We do have a basic
-`Makefile` which captures key commands in one place (for more thoughts on why
-this makes sense, see
-[general principles: automation](https://gitlab.com/znicholls/mullet-rse/-/blob/main/book/general-principles/automation.md)).
-For an introduction to `make`, see
-[this introduction from Software Carpentry](https://swcarpentry.github.io/make-novice/).
-Having said this, if you're not interested in `make`, you can just copy the
-commands out of the `Makefile` by hand and you will be 90% as happy for a
-simple repository like this.
-
-### Tools
-
-In this repository, we use the following tools:
-
-- git for version-control (for more on version control, see
-  [general principles: version control](https://gitlab.com/znicholls/mullet-rse/-/blob/main/book/theory/version-control.md))
-    - for these purposes, git is a great version-control system so we don't
-      complicate things any further. For an introduction to Git, see
-      [this introduction from Software Carpentry](http://swcarpentry.github.io/git-novice/).
-- [uv](https://docs.astral.sh/uv/) for environment management
-  (for more on environment management, see
-  [general principles: environment management](https://gitlab.com/znicholls/mullet-rse/-/blob/main/book/theory/environment-management.md))
-    - there are lots of environment management systems.
-      uv works well in our experience.
-    - we track the `uv.lock` file so that the environment
-      is completely reproducible on other machines or by other people
-      (e.g. if you want a colleague to take a look at what you've done)
-- [pre-commit](https://pre-commit.com/) with some very basic settings to get some
-  easy wins in terms of maintenance, specifically:
-    - code formatting with [ruff](https://docs.astral.sh/ruff/formatter/)
-    - basic file checks (removing unneeded whitespace, not committing large
-      files etc.)
-    - (for more thoughts on the usefulness of pre-commit, see
-      [general principles: automation](https://gitlab.com/znicholls/mullet-rse/-/blob/main/book/general-principles/automation.md)
-    - track your notebooks using
-    [jupytext](https://jupytext.readthedocs.io/en/latest/index.html)
-    (for more thoughts on the usefulness of Jupytext, see
-    [tips and tricks: Jupytext](https://gitlab.com/znicholls/mullet-rse/-/blob/main/book/tips-and-tricks/managing-notebooks-jupytext.md))
-        - this avoids nasty merge conflicts and incomprehensible diffs
+<!--- --8<-- [end:installation] -->
 
 ## Original template
 
 This project was generated from this template:
-[basic python repository](https://gitlab.com/openscm/copier-basic-python-repository).
+[copier core python repository](https://gitlab.com/openscm/copier-core-python-repository).
 [copier](https://copier.readthedocs.io/en/stable/) is used to manage and
 distribute this template.
